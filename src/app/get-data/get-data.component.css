@@ -1,0 +1,68 @@
+.wrapper{
+    border:#000 1px solid;
+    border-radius: 14px;
+    float: left;
+    width:300px;
+}
+.userWrapper{
+    border:1px solid;
+    width:250px;
+    margin: 5px auto;
+    padding: 1px 10px;
+    float: left;
+    position: relative;
+    left: 5%;
+}
+.moreInfo{
+    border:1px solid #000;
+    width: 80px;
+    height:30px;
+    background: gray;
+    margin: 0 10px 5px 0;
+    cursor: pointer;
+   
+}
+.moreinfoWrapper{
+    border:1px solid #000;
+    width:150px;
+    display: none;
+}
+.buttonsWrapper{
+    float: right;
+}
+.userinput{
+    border:1px solid #000;
+    width:130px;
+    padding: 0 0 0 10px;
+    color:#000;
+    padding: 10px;
+}
+.userinput::placeholder{
+    color:#000;
+}
+
+.delete, .update{
+    border:1px solid #000;
+    width: 80px;
+    height:30px;
+    background: #e5e289;
+    cursor: pointer;
+}
+.green{
+    border-color: green;
+}
+.red{
+    border-color: red;
+}
+.idLabel{
+    cursor: pointer;
+    margin: 16px 0 -17px 0px;
+    display: block;
+}
+.pickedUser{
+    background: #f45942;
+}
+.todosWrapper{
+    float: left;
+    width: 300px;
+}

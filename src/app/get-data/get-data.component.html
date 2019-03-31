@@ -1,0 +1,27 @@
+<div id="wrapper" class="wrapper">
+<label>Search: </label><input type="text" #search class="userinput" (keyup)="searching=search.value">
+<div *ngFor="let u of Users  | utils : searching ; let ind=index;"> 
+  <div  id="userWrapper{{u.id}}" class="userWrapper" [ngClass]="completed(u.id)">
+      <form #f="ngForm" (ngSubmit)="UpdateUser(f.valid, u.id)" >
+    <label class="idLabel" (click)=PickID(u.id)>ID: {{u.id}} </label><br/>
+    <input placeholder='{{u.id}}' value="{{u.id}}" type="hidden">
+    <p><label>Name: </label><input #name="ngModel" name="name" [(ngModel)]="Users[ind].name" class="userinput" placeholder='{{u.name}}' type="text"></p>
+    <p><label>Email: </label><input #email="ngModel" name="email" [(ngModel)]="Users[ind].email" class="userinput" placeholder='{{u.email}}' type="email" email="true"></p>
+            
+    <button id="{{u.id}}" class="moreInfo" (mouseenter)="showinfo(u.id)" (click)="hideinfo(u.id)">Other Data</button>
+      <div class="moreinfoWrapper" id="moreinfoWrapper{{u.id}}">
+          <p><label>Street: </label><input #street="ngModel" name="strret" [(ngModel)]="Users[ind].street" class="userinput" placeholder='{{u.street}}' type="text"></p>
+          <p><label>City: </label><input #city="ngModel" name="city" [(ngModel)]="Users[ind].city" class="userinput" placeholder='{{u.city}}' type="text"></p>
+          <p><label>Zip Code: </label><input #zip="ngModel" name="zip" [(ngModel)]="Users[ind].zip" class="userinput" placeholder='{{u.zip}}'  type="text"></p>
+      </div>
+    <div class="buttonsWrapper">
+    <input type="submit" class="update" value="Update">
+    <button class="delete" (click)="deleteUSer(u.id)" >Delete</button>
+    </div> 
+  </form>
+  </div>
+ </div>
+</div>
+<div class="todosWrapper">
+<app-todos [todos]="Todos" [userID]="pickedUserID" [show]="showTodos"></app-todos>
+</div>

@@ -1,0 +1,21 @@
+<div *ngIf="show" id="todowrapper">
+  <p>Todos	–	User	{{userID}}</p><button id="todosAdd" class="todosAdd" (click)="todosAdd()">add</button>
+  <div class="todowrapper">
+    <div *ngFor="let t of filterTodosByID(userID)" class="taskWtapper">
+      <p>Title: {{t.title}}</p>
+      <p>Completed: {{t.completed}}</p>
+      <button *ngIf=(!t.completed) class="markAsComleted" (click)="markAsComleted(t.id)">Mark Completed</button>
+     </div> 
+  </div>
+</div>
+<div id="Addtodowrapper">
+    <p>New Todos	–	User	{{userID}}</p>
+    <div class="AddtodoBox">
+        <form #todosF="ngForm" (ngSubmit)="AddmoreTodo()" >
+        <p><label>Title:</label><input  #title="ngModel" name="title" [(ngModel)]="model.title" class="Titleinput" type="text"></p>
+        <button id="CancelTdo" (click)="CancelTdo()">cancel</button>
+        <input id="AddmoreTodo" type="submit" class="update" value="add">
+        </form>
+    </div>
+  </div>
+
